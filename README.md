@@ -85,5 +85,8 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. RwLock will allow our multi threads to read the Vec data structure by synchronizing access to the shared Notification Vec. This will allow multiple thread to read or access the data structure concurrently and help prevents deadlock. Using Mutex however, will restrict the process to single lock and can reduce performance because of the single threading.
+
+2. In default, static variable in Java are mutable which can have some shared state so it can cause some concurrency issues. It also can cause some risk such as data races and undefined behavior in some cases. Rust static variable by default is immutable so it guarantee us to disable it's modification after it was initialized, which can prevent the shared state issues like static variable i Java
 
 #### Reflection Subscriber-2
