@@ -88,10 +88,14 @@ pub fn unsubscribe(product_type: &str) -> Result<SubscriberRequest> {
     return thread::spawn(move || Self::unsubscribe_request(product_type_clone))
         .join().unwrap();
     }
-    
+
 pub fn receive_notification(payload: Notification) -> Result<Notification> {
     let subscriber_result: Notification = NotificationRepository::add(payload);
     return Ok(subscriber_result);
+    }
+
+    pub fn list_messages() -> Result<Vec<String>> {
+        return Ok(NotificationRepository::list_all_as_string());
     }
 
 }
